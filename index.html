@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="assets/reset.css" class="stylesheet">
+
+    <link rel="stylesheet" href="assets/style.css" class="stylesheet">
+</head>
+
+
+
+
+
+<body>
+
+    <header id="directions-text">Guess What Letter I'm Thinking Of!!</header>
+
+    <div id="game">
+
+        <div>
+
+            <p id="userwins" class="txt">Wins:</p>
+            <!--(# of times the user has guessed the letter correctly)-->
+
+            <p id="userlosses">Loses:</p>
+            <!--(# of times the user has failed to guess the letter correctly after exhausting all guesses)-->
+
+            <p id="guessesleft">Guesses Left:</p>
+            <!--(# of guesses left. This will update)-->
+
+            <p id="guesses">Your Guesses So Far</p>
+            <!--(the specific letters that the user typed. Display these until the user either wins or loses.)-->
+
+            <!--When the player wins, increase the Wins counter and start the game over again (without refreshing the page).-->
+
+            <!--When the player loses, increase the Losses counter and restart the game without a page refresh (just like when the user wins).-->
+
+        </div>
+
+
+    </div>
+
+    <script type="text/javascript">
+
+
+//set variables////
+
+var alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+
+console.log(alphabet)
+
+alphabet.forEach(function(alphabet) {
+    console.log(alphabet);
+});
+
+
+//CONSIDER THIS FOR LOOP////
+// for (variable i = 0; i < alphabet.length; i++) {
+
+// }
+
+
+// Prompt the User to pick a letter////
+
+var userChoice = prompt('Pick any letter of the alphabet');
+    document.getElementById('guesses');
+    guesses.innerHTML + 1;
+
+
+
+
+
+//Have the computer pick a letter at random////
+
+
+
+
+
+
+//Check to see if the users pick matches the computer pick////
+
+
+
+
+
+
+        //if picks match add 1 to the #userwins ////
+
+
+
+
+        //else add 1 to the #userloses////
+
+
+
+
+
+        //display which letter the user has chosen continuously #guesses////
+
+
+
+
+
+
+        //remove 1 from #guessesleft////
+
+
+
+
+
+        //restart game unless guesses left = zero////
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    
+    
+    
+    
+    </script>
+
+    
+
+
+
+
+</body>
+
+
+
+
+</html>
