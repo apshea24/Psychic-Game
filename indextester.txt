@@ -17,11 +17,9 @@
 
 <body>
 
-    <header id="directions-text"><strong>Guess What Letter I'm Thinking Of!!</strong></header>
+    <header id="directions-text">Guess What Letter I'm Thinking Of!!</header>
 
     <div id="game">
-
-        <h1>Pick Any Letter To Start!!</h1>
 
         <div>
 
@@ -49,8 +47,19 @@
     <script type="text/javascript">
 
 
+
+
+// Prompt the User to pick a letter////
+var userGuess = prompt('Pick any letter of the alphabet');
+
+
 //Create Array for the Computer to choose Randomnly 
 var computerChoices = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+
+//Have the computer pick a letter at random////
+
+var computerGuess= 
+    computerChoices[Math.floor(Math.random() * computerChoices.length)];
 
 //set variables////
 
@@ -59,7 +68,10 @@ var losses = 0;
 var attempts = 9;
 var guesses = [];
 
-// Create variables that hold references to the places in the HTML where we want to display things.
+
+console.log(userGuess);
+console.log(computerGuess);
+
 
 var userWinsText = document.getElementById("userwins");
 var userLossesText = document.getElementById("userlosses");
@@ -67,52 +79,23 @@ var guessesLeftText = document.getElementById("guessesleft");
 var guessesText = document.getElementById("guesses");
 
 
-document.onkeyup = function(event) {
+// This is the funtion that will retrieve the letter chosen by the user
 
+document.onkeyup = function (event) {
+    var guess = String.fromCharCode(event.keyCode).toLowerCase();
 
-// Prompt the user to pick a letter
-    // prompt("Pick any Letter of the Alphabet");
-
-
-// Determines which key was pressed.
-    var userGuess = String.fromCharCode(event.keyCode).toLowerCase();
-    console.log("--This is the Users pick---")
-    console.log(userGuess);
-
-//Have the computer pick a letter at random////
-    var computerGuess= 
-    computerChoices[Math.floor(Math.random() * computerChoices.length)];
-    console.log("--This is the computers pick---")
-    console.log(computerGuess);
-
-// Compare computerGuess to userGuess. Add a win or loss respcetively
     if (userGuess === computerGuess) {
-        wins++;
-        attempts--;
-        guesses.push(userGuess);
-        console.log("win");
-        console.log(attempts);
+        console.log("The Letters Match");
     } else {
-        losses++;
-        attempts--;
-        guesses.push(userGuess);
-        console.log("loss");
-        console.log(attempts);
+        console.log("Try Again");
+
     }
 
+    
 
-        guessesLeftText.textContent = "Guesses Left: " + attempts;
-        userLossesText.textContent ="Losses: " + losses;
-        guessesText.textContent = "You Chose: " + guesses + " ";
-        userWinsText.textContent ="Wins: " + wins;
+
 
 }
-
-
-
-
-
-
 
  
 
