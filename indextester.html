@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+     <link rel="stylesheet" href="assets/css/reset.css" class="stylesheet">
+
+    <!-- <link rel="stylesheet" href="assets/css/style.css" class="stylesheet">  -->
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+</head>
+
+
+
+
+
+<body>
+    <div class="container">
+    <header id="directions-text"><strong>Guess What Letter I'm Thinking Of!!</strong></header>
+    </div>
+
+    <div class="container">
+
+
+        <h1>Pick Any Letter To Start!!</h1>
+
+        <div class="row">
+
+            <div class="col-12">
+
+
+                <p id="userwins" class="txt">Wins:</p>
+                <!--(# of times the user has guessed the letter correctly)-->
+
+                <p id="userlosses">Loses:</p>
+                <!--(# of times the user has failed to guess the letter correctly after exhausting all guesses)-->
+
+                <p id="guessesleft">Guesses Left:</p>
+                <!--(# of guesses left. This will update)-->
+
+                <p id="guesses">Your Guesses So Far</p>
+                <p id="compGuesses">Computer's Guesses</p>
+                <!--(the specific letters that the user typed. Display these until the user either wins or loses.)-->
+
+                <!--When the player wins, increase the Wins counter and start the game over again (without refreshing the page).-->
+
+                <!--When the player loses, increase the Losses counter and restart the game without a page refresh (just like when the user wins).-->
+            </div> <!--End of column-12-->
+        </div> <!--End of row 1-->
+
+    </div> <!--End of container-->
+    <script type="text/javascript">
+
+
+        //Create Array for the Computer to choose Randomnly 
+        var computerChoices = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+
+        //set variables////
+
+        var wins = 0;
+        var losses = 0;
+        var attempts = 9;
+        var guesses = [];
+        var cmpGuesses = [];
+
+        // Create variables that hold references to the places in the HTML where we want to display things.
+
+        var userWinsText = document.getElementById("userwins");
+        var userLossesText = document.getElementById("userlosses");
+        var guessesLeftText = document.getElementById("guessesleft");
+        var guessesText = document.getElementById("guesses");
+        var cmpGuessesText = document.getElementById("cmpGuesses")
+
+        function restartGame () {
+            if (guesses === 0) {
+                wins = 0;
+                losses = 0;
+                attempts = 9;
+                guesses = [];
+            } else {
+                return
+            }
+            
+        }
+
+
+        document.onkeyup = function (event) {
+
+
+            // Prompt the user to pick a letter
+            // prompt("Pick any Letter of the Alphabet");
+
+
+            // Determines which key was pressed.
+            var userGuess = String.fromCharCode(event.keyCode).toLowerCase();
+            console.log("--This is the Users pick---")
+            console.log(userGuess);
+
+            //Have the computer pick a letter at random////
+            var computerGuess =
+                computerChoices[Math.floor(Math.random() * computerChoices.length)];
+            console.log("--This is the computers pick---")
+            console.log(computerGuess);
+
+            // Compare computerGuess to userGuess. Add a win or loss respcetively, subtract
+            if (userGuess === computerGuess) {
+                wins++;
+                attempts--;
+                guesses.push(userGuess);
+                cmpGuesses.push(computerGuess);
+                console.log("win");
+                console.log(attempts);
+            } else {
+                losses++;
+                attempts--;
+                guesses.push(userGuess);
+                cmpGuesses.push(computerGuess);
+                console.log("loss");
+                console.log(attempts);
+            }
+
+            restartGame ();
+
+
+            guessesLeftText.textContent = "Guesses Left: " + attempts;
+            userLossesText.textContent = "Losses: " + losses;
+            guessesText.textContent = "You Chose: " + guesses + " ";
+            userWinsText.textContent = "Wins: " + wins;
+            cmpGuessesText.textContent = "Computer Chose: " + cmpGuessess + " ";
+
+        }
+
+
+
+    </script>
+
+
+
+
+
+
+</body>
+
+
+
+
+</html>
+
+
+//Check to see if the users pick matches the computer pick////
+
+
+
+
+
+
+        //if picks match add 1 to the #userwins ////
+
+
+
+
+        //else add 1 to the #userloses////
+
+
+
+
+
+        //display which letter the user has chosen continuously #guesses////
+
+
+
+
+
+
+        //remove 1 from #guessesleft////
+
+
+
+
+
+        //restart game unless guesses left = zero////
+
+
+
+
+
+// For Each loop... Try for computer guess function
+// alphabet.forEach(function(alphabet) {
+//     console.log(alphabet);
+// });
+
+
+//CONSIDER THIS FOR LOOP////
+// for (variable i = 0; i < alphabet.length; i++) {
+
+// }
+
+
+
+

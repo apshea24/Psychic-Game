@@ -5,231 +5,196 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <!-- <link rel="stylesheet" href="assets/reset.css" class="stylesheet">
+    <title>Austins Bootstrap Site</title>
 
-    <link rel="stylesheet" href="assets/style.css" class="stylesheet"> -->
+    <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+    <!--Boot Strap Baby!!!!-->
+
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
+
 </head>
-
-
-
-
 
 <body>
 
-    <header id="directions-text"><strong>Guess What Letter I'm Thinking Of!!</strong></header>
 
-    <div id="game">
+    <header>
+        <div class="container">
 
-        <h1>Pick Any Letter To Start!!</h1>
+            <div class="row">
 
-        <div>
+                <div class="col-12 col-md-6 col-lg-3 name">
+                    <h1>Austin Shea</h1>
+                </div>
 
-            <p id="userwins" class="txt">Wins:</p>
-            <!--(# of times the user has guessed the letter correctly)-->
+                <div class="col-12 col-md-6 col-lg-9">
 
-            <p id="userlosses">Loses:</p>
-            <!--(# of times the user has failed to guess the letter correctly after exhausting all guesses)-->
+                    <ul class="nav justify-content-md-end justify-content-center ">
+                        <li class="nav-item">
+                            <button type="button" class="btn btn-primary"><a href="contacts.html">Contacts</a></button>
+                        </li>
 
-            <p id="guessesleft">Guesses Left:</p>
-            <!--(# of guesses left. This will update)-->
 
-            <p id="guesses">Your Guesses So Far</p>
-            <!--(the specific letters that the user typed. Display these until the user either wins or loses.)-->
+                        <li class="nav-item">
+                            <button type="button" class="btn btn-danger"><a href="portfolio.html">Portfolio</a></button>
+                        </li>
 
-            <!--When the player wins, increase the Wins counter and start the game over again (without refreshing the page).-->
+                        <li class="nav-item">
+                            <button type="button" class="btn btn-warning"><a href="index.html">About</a></button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!--row-->
+        </div>
+        <!--container-->
+    </header>
 
-            <!--When the player loses, increase the Losses counter and restart the game without a page refresh (just like when the user wins).-->
+    <br>
+    <br>
+
+
+    <div class="container">
+
+        <div class="row maincontent">
+
+            <h2>Guess Zoltars Letter or Be Aged 25 Years!!!!!</h2>
+
+            <div class="col-lg-12 about">
+                <h2>Pick Any Letter to Start</h2>
+
+                <div class="row">
+
+                    <div class="col-6 justify-content-right">
+                        <img src="assets\images\crystalball.png" alt="Zoltar" height=400 width=400>
+
+                    </div>
+
+                    <div class="col-6">
+
+                        <p id="userwins" class="txt">Wins:</p>
+                        <!--(# of times the user has guessed the letter correctly)-->
+
+                        <p id="userlosses">Loses:</p>
+                        <!--(# of times the user has failed to guess the letter correctly after exhausting all guesses)-->
+
+                        <p id="guessesleft">Guesses Left:</p>
+                        <!--(# of guesses left. This will update)-->
+
+                        <p id="guesses">Your Guesses So Far</p>
+                        <p id="compGuesses">Computer's Guesses</p>
+                        <!--(the specific letters that the user typed. Display these until the user either wins or loses.)-->
+
+                        <!--When the player wins, increase the Wins counter and start the game over again (without refreshing the page).-->
+
+                        <!--When the player loses, increase the Losses counter and restart the game without a page refresh (just like when the user wins).-->
+                    </div>
+
+
+                </div>
+            </div>
+            <!--about-->
 
         </div>
-
+        <!--End Of Row 1-->
 
     </div>
+    <!--container-->
+
+
+    <footer>
+
+        <p align="center">Copyright</p>
+
+    </footer>
 
     <script type="text/javascript">
 
 
-//Create Array for the Computer to choose Randomnly 
-var computerChoices = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+        //Create Array for the Computer to choose Randomnly 
+        var computerChoices = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+
+        //set variables////
+
+        var wins = 0;
+        var losses = 0;
+        var attempts = 9;
+        var guesses = [];
+        var cmpGuesses = [];
+
+        // Create variables that hold references to the places in the HTML where we want to display things.
+
+        var userWinsText = document.getElementById("userwins");
+        var userLossesText = document.getElementById("userlosses");
+        var guessesLeftText = document.getElementById("guessesleft");
+        var guessesText = document.getElementById("guesses");
+        var cmpGuessesText = document.getElementById("compGuesses")
+
+        var restartGame() {
+          restartGame.SetVar()
+
+        }
+        document.getElementById.textContent = "Wins: " + wins;
+
+        document.onkeyup = function (event) {
+
+
+            // Prompt the user to pick a letter
+            // prompt("Pick any Letter of the Alphabet");
+
+
+            // Determines which key was pressed.
+            var userGuess = String.fromCharCode(event.keyCode).toLowerCase();
+            console.log("--This is the Users pick---")
+            console.log(userGuess);
+
+            //Have the computer pick a letter at random////
+            var computerGuess =
+                computerChoices[Math.floor(Math.random() * computerChoices.length)];
+            console.log("--This is the computers pick---")
+            console.log(computerGuess);
+
+            // Compare computerGuess to userGuess. Add a win or loss respcetively, subtract
+            if (userGuess === computerGuess) {
+                wins++;
+                attempts--;
+                guesses.push(userGuess);
+                cmpGuesses.push(computerGuess);
+                console.log("win");
+                console.log(attempts);
+            } else {
+                losses++;
+                attempts--;
+                guesses.push(userGuess);
+                cmpGuesses.push(computerGuess);
+                console.log("loss");
+                console.log(attempts);
+            }
+
+            if ()
+            restartGame();
+
+            guessesLeftText.textContent = "Guesses Left: " + attempts;
+            userLossesText.textContent = "Losses: " + losses;
+            guessesText.textContent = "You Chose: " + guesses + " ";
+            userWinsText.textContent = "Wins: " + wins;
+            cmpGuessesText.textContent = "Computer Chose: " + computerGuess + " ";
+
+        }
 
-//set variables////
-
-var wins = 0;
-var losses = 0;
-var attempts = 9;
-var guesses = [];
-
-// Create variables that hold references to the places in the HTML where we want to display things.
-
-var userWinsText = document.getElementById("userwins");
-var userLossesText = document.getElementById("userlosses");
-var guessesLeftText = document.getElementById("guessesleft");
-var guessesText = document.getElementById("guesses");
-
-
-document.onkeyup = function(event) {
-
-
-// Prompt the user to pick a letter
-    // prompt("Pick any Letter of the Alphabet");
-
-
-// Determines which key was pressed.
-    var userGuess = String.fromCharCode(event.keyCode).toLowerCase();
-    console.log("--This is the Users pick---")
-    console.log(userGuess);
-
-//Have the computer pick a letter at random////
-    var computerGuess= 
-    computerChoices[Math.floor(Math.random() * computerChoices.length)];
-    console.log("--This is the computers pick---")
-    console.log(computerGuess);
-
-// Compare computerGuess to userGuess. Add a win or loss respcetively
-    if (userGuess === computerGuess) {
-        wins++;
-        attempts--;
-        guesses.push(userGuess);
-        console.log("win");
-        console.log(attempts);
-    } else {
-        losses++;
-        attempts--;
-        guesses.push(userGuess);
-        console.log("loss");
-        console.log(attempts);
-    }
-
-
-        guessesLeftText.textContent = "Guesses Left: " + attempts;
-        userLossesText.textContent ="Losses: " + losses;
-        guessesText.textContent = "You Chose: " + guesses + " ";
-        userWinsText.textContent ="Wins: " + wins;
-
-}
-
-
-
-
-
-
-
- 
-
-
-
-   
-
-
-
-
-
-
-// var userChoice = prompt('Pick any letter of the alphabet');
-//     document.getElementById('guesses');
-//     guesses.innerHTML + 1;
-
-
-
-
-
-
-
-
-
-
-
-
-//Check to see if the users pick matches the computer pick////
-
-
-
-
-
-
-        //if picks match add 1 to the #userwins ////
-
-
-
-
-        //else add 1 to the #userloses////
-
-
-
-
-
-        //display which letter the user has chosen continuously #guesses////
-
-
-
-
-
-
-        //remove 1 from #guessesleft////
-
-
-
-
-
-        //restart game unless guesses left = zero////
-
-
-
-
-
-// For Each loop... Try for computer guess function
-// alphabet.forEach(function(alphabet) {
-//     console.log(alphabet);
-// });
-
-
-//CONSIDER THIS FOR LOOP////
-// for (variable i = 0; i < alphabet.length; i++) {
-
-// }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-    
-    
-    
-    
-    
     </script>
 
-    
 
+    <!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script> -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script> -->
 
 
 
 </body>
-
-
-
 
 </html>
